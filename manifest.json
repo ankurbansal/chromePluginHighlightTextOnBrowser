@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Text Highlighter",
+  "version": "1.0",
+  "description": "Highlight text on web pages and save highlights persistently",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content.js"],
+      "css": ["highlight.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Text Highlighter"
+  }
+}

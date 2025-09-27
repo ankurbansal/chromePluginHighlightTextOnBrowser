@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 350px;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .header h1 {
+      margin: 0;
+      color: #333;
+      font-size: 18px;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      padding: 8px;
+      background: #f5f5f5;
+      border-radius: 4px;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-weight: bold;
+      font-size: 16px;
+      color: #4CAF50;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .controls {
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 8px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .btn-primary {
+      background: #4CAF50;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #2196F3;
+      color: white;
+    }
+
+    .btn-danger {
+      background: #f44336;
+      color: white;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .highlights-list {
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 8px;
+    }
+
+    .highlight-item {
+      padding: 8px;
+      margin-bottom: 8px;
+      background: #f9f9f9;
+      border-radius: 4px;
+      border-left: 3px solid #4CAF50;
+    }
+
+    .highlight-text {
+      font-weight: bold;
+      margin-bottom: 4px;
+      word-wrap: break-word;
+    }
+
+    .highlight-meta {
+      font-size: 11px;
+      color: #666;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .highlight-url {
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .delete-btn {
+      background: #ff4444;
+      color: white;
+      border: none;
+      border-radius: 2px;
+      padding: 2px 6px;
+      cursor: pointer;
+      font-size: 10px;
+    }
+
+    .empty-state {
+      text-align: center;
+      color: #666;
+      padding: 20px;
+      font-style: italic;
+    }
+
+    .instructions {
+      margin-top: 15px;
+      padding: 10px;
+      background: #e8f5e8;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Text Highlighter</h1>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-number" id="total-highlights">0</div>
+      <div class="stat-label">Total</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number" id="page-highlights">0</div>
+      <div class="stat-label">This Page</div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="btn btn-secondary" id="export-btn">Export All Highlights</button>
+    <button class="btn btn-danger" id="clear-all-btn">Clear All Highlights</button>
+  </div>
+
+  <div class="highlights-list" id="highlights-container">
+    <div class="empty-state" id="empty-state">
+      No highlights found. Start highlighting text on web pages!
+    </div>
+  </div>
+
+  <div class="instructions">
+    <strong>How to use:</strong><br>
+    • Select text and click "Highlight" or press Ctrl+H<br>
+    • Double-click highlights to remove them<br>
+    • Highlights are automatically saved and restored
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
